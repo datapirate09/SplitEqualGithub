@@ -1,0 +1,343 @@
+.home-head{
+    padding-top: 30px;
+    font-size: 4rem;
+    font-family: 'Montserrat', sans-serif;
+    text-align: center;
+}
+.groups{
+    background-color: #27ae60;
+    width: 450px;
+    height: 250px;
+    border-radius: 5px;
+}
+.account{
+    background-color: #16a085;
+    width: 450px;
+    height: 250px;
+    border-radius: 5px;
+}
+.container{
+    padding-top: 50px;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    gap: 60px;
+}
+.home-sub{
+    text-align: center;
+    color: white;
+    padding-top: 80px;
+    font-family: 'Roboto Mono', monospace;
+}
+.groups, .account {
+    display: inline-block;
+    text-align: left; 
+    margin: 0 auto;   
+}
+.homeoption{
+    text-align: center;
+    color: wheat;
+    font-family: 'PT Sans', sans-serif;
+    font-size: 1.5rem;
+}
+.loginpage{
+    padding-bottom: 120px;
+    background-color: #ecf0f1;
+}
+p{
+    text-align: center;
+}
+.loginpage {
+    position: relative;
+}
+
+.logout-container {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    
+}
+
+#logoutOptions {
+    display: none;
+    position: absolute;
+    top: 30px;
+    right: 0;
+    background-color: #fff;
+    border: 1px solid #ccc;
+    padding: 10px;
+    
+}
+
+#logoutOptions a {
+    display: block;
+    text-decoration: none;
+    color: #333;
+}
+
+#logoutOptions a:hover {
+    background-color: #eee;
+}
+#logoutButton{
+    border: none;
+    background-color: #27ae60;
+    color: white;
+    border-radius: 5px;
+    width: 80px;
+    height: 30px;
+}
+footer{
+    padding-top: 20px;
+    padding-bottom: 20px;
+    text-align: center;
+    width: 100%;
+    background-color: black;
+    color: white;
+}
+.group-container{
+    width: 300px;
+    height: 200px;
+    background-color: #ffcccc;
+    border-radius: 10px;
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    text-align: center;
+    justify-content: center;
+    align-items: center;
+    padding: 20px;
+}
+.group{
+    display: grid;
+    grid-template-rows: 300px 300px;
+    grid-template-columns: 300px 300px 300px;
+    gap: 60px;
+    text-align: center;
+    justify-content: center;
+    align-items: center;
+    padding: 30px;
+}
+button {
+    text-align: center;
+    text-decoration: none;
+    border: none;
+    width: 120px;
+    height: 60px;
+}
+
+.buttongroup {
+    text-align: center; /* Align the button within the container */
+    margin-bottom: 20px; /* Adjust as needed */
+}
+.button1{
+    border-radius: 10px;
+    background-color: #32ff7e;
+    color: white;
+}
+.grouppage {
+    padding: 30px;
+    background-color: #9980FA;
+    flex-direction: column;
+    justify-content: center;
+    text-align: center;
+}
+.groupform{
+    padding: 10px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+}
+.form{
+    padding: 40px;
+    background-color: #74b9ff;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    align-items: center;
+    justify-content: center;
+}
+.groupinput{
+    width: 300px;
+    height: 50px;
+    border-radius: 10px;
+    text-align: center;
+    border: none;
+}
+.labelgroup{
+    font-family: 'Roboto Mono', monospace; 
+    font-size: 1.3rem;
+}
+#formhead{
+    font-family: 'Montserrat', sans-serif;
+}
+.groupbutton{
+    width: 180px;
+    height: 40px;
+    border-radius: 5px;
+    border: none;
+}
+#submitgroup{
+    width: 80px;
+    height: 40px;
+    border-radius: 5px;
+    border: none;
+}
+.submitstyle{
+    padding-top: 30px
+}
+#groupName{
+    font-family: 'Single Day', cursive;
+    font-size: 3rem
+}
+#groupMembers{
+    font-family: 'Montserrat', sans-serif;
+    font-size: 1.5rem;
+}
+.transaction-form{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+}
+.transaction-page{
+    padding-top: 80px;
+    background-color: #8c7ae6;
+    text-align: center;
+    padding-bottom: 100px;
+}
+.transaction-label{
+    font-family: 'Montserrat', sans-serif;
+    color: white;
+    font-size: 1.4rem;
+}
+.transactionbutton{
+    width: 100px;
+    height: 40px;
+    border-radius: 10px;
+}
+#transactionhead{
+    font-family: 'Montserrat', sans-serif;
+    padding-bottom: 30px;
+    color: white;   
+}
+#amounttran{
+    border-radius: 5px;
+    width: 160px;
+    height: 50px;
+    border: none;
+}
+.transactionbutton2{
+    width: 160px;
+    height: 60px;
+    border-radius: 10px;
+}
+#pasttransactions{
+    background-color: #eb4d4b;
+    padding-top: 50px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 20px;
+    padding-bottom: 60px;
+}
+#pasttransactionhead{
+    color: white;
+    font-family: 'Single Day', cursive;
+    font-size: 3.6rem;
+    padding: 20px;
+    text-align: center;
+}
+.transactions{
+    color: #130f40;
+    font-family: 'Oswald', sans-serif;
+    text-align: center;
+}
+.toClear{
+    padding-top: 40px;
+    padding-bottom: 50px;
+    background-color: #ff9ff3;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+}
+#toClearhead{
+    color: #222f3e;
+    font-family: 'Single Day', cursive;
+    font-size: 2.8rem;
+    padding-top: 30px;
+    padding-bottom: 40px;
+}
+.toClearSub{
+    font-family: 'Oswald', sans-serif;
+    color: #130f40;
+}
+#howtoClear{
+    font-family: 'PT Sans', sans-serif;
+    color: black;
+    font-size: 1.2rem;
+}
+.account-container{
+    padding: 30px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 20px;
+    background-color: #dfe6e9;
+}
+.cont{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    gap: 30px;
+}
+.form-container{
+    
+    padding-top: 40px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 20px;
+    padding-bottom: 30px;
+}
+.cont {
+    padding-right: 120px;
+    display: flex;
+    align-items: center;
+    margin-bottom: 10px;
+}
+
+.cont label {
+    width: 200px; /* Adjust this width according to your design */
+    text-align: right;
+    margin-right: 10px;
+}
+
+.cont input {
+    flex: 1;
+    border-radius: 5px;
+    border: none;
+}
+#submitButton{
+    background-color: black;
+    color: white;
+    border-radius: 5px;
+}
+#headaccount{
+    font-family: 'Montserrat', sans-serif;
+    text-align: center;
+}
+.headpart{
+    text-decoration: none;
+    font-family: 'Raleway', sans-serif;
+}

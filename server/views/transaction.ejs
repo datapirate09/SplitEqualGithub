@@ -1,0 +1,90 @@
+<%- include("header.ejs") %>
+<div class="transaction-page">
+    
+    <div class="add-transaction">
+        <h1 id="transactionhead">Create a Transaction To SplitEqual</h1>
+        <form method="POST" action="/addTransaction/<%= locals.groupid %>" class="transaction-form">
+            <label for="amount" class="transaction-label">Amount To Split</label>
+            <input type="text" id="amounttran" name="amount" placeholder="Enter Amount" style="text-align: center;" required>
+            <div id="membersToShow" style="display: none;">
+                <% for(var i=0; i<locals.userList.length; i++) { %>
+                    <input type="checkbox" style="transform: scale(2.0);" name="selectedUsers" value="<%= locals.userList[i].username %>">
+                    <label style="color: white; margin-left: 5px; padding: 5px;"><%= locals.userList[i].username %></label><br>
+                <% } %>
+            </div>  
+            <button type="button" id="addMemberButton" class="transactionbutton">+ Member</button>
+            <button type="submit"  id="transactionbutton2" style="display: none; border-radius: 5px;">SplitEqual</button> <!-- Changed button type to submit -->
+        </form>
+    </div>
+    
+</div>
+<div class="toClear"> 
+    <h2 id="toClearhead">Incomplete Trasactions</h2>
+    <h3 id="howtoClear">(Click on Transaction to Mark Complete)</h3>
+    <%if (locals.newCombinedList.length === 0){%>
+        <h3>No Uncleared Transactions</h3>
+    <%} else {%>
+    <% for(var i=0; i<locals.newCombinedList.length; i++) { %>
+        <% if (locals.newCombinedList[i].amount > 0) { %>
+            <h2 class="toClearSub" data-userid="<%=locals.userDetails%>" data-username="<%= locals.newCombinedList[i].username %>" ><%= locals.newCombinedList[i].username %> Owes you <%= locals.newCombinedList[i].amount %></h2>
+        <% } else { %>
+            <h2 class="toClearSub" data-userid="<%=locals.userDetails%>" data-username="<%= locals.newCombinedList[i].username %>">You Owe <%= locals.newCombinedList[i].username %> an amount of <%=-( locals.newCombinedList[i].amount) %></h2>
+        <% } %>
+    <% } %>
+    <%}%>
+</div>
+<div id="pasttransactions">
+    <h2 id="pasttransactionhead">Past Transactions</h2>
+    <%if (locals.allTransactions.length === 0){%>
+        <h3>No Past Transactions</h3>
+    <%} else {%>
+    <% for(var i=0; i<locals.allTransactions.length; i++) { %>
+        <h3 class="transactions"><%= locals.allTransactions[i].name %> SplitEqual an amount of <%= locals.allTransactions[i].amount %></h3>
+    <% } %>
+    <%}%>
+</div>
+<%- include("footer.ejs") %>
+
+<script>
+    document.getElementById('addMemberButton').addEventListener('click', () => {
+        const btn = document.getElementById('addMemberButton');
+        btn.style.display = 'none';
+        const box = document.getElementById('membersToShow');
+        box.style.display = 'block';
+        const submitButton = document.getElementById('transactionbutton2');
+        submitButton.style.display='block';
+    });
+
+    function handleH2Click(event) {
+        // Extract username and userid from data attributes
+        const username = event.target.dataset.username;
+        const userid = event.target.dataset.userid;
+        console.log(username);
+        // Make a POST request to the server with the username and userid
+        fetch('/removeTransaction', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify({ username: username, userid: userid })
+        })
+        .then(response => {
+            if (!response.ok) {
+                throw new Error('Network response was not ok');
+            }
+            else{
+                window.location.href = '/groups';
+            }
+            // Handle response
+        })
+        .catch(error => {
+            console.error('There was a problem with the fetch operation:', error);
+        });
+    }
+
+    // Add click event listeners to all h2 elements with class "toClearSub"
+    const h2Elements = document.querySelectorAll('.toClearSub');
+    h2Elements.forEach(h2 => {
+        h2.addEventListener('click', handleH2Click);
+    });
+</script>

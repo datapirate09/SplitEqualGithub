@@ -1,0 +1,41 @@
+<%- include("header.ejs") %>
+<script>
+    function getNext(){
+    var form = document.querySelector('.groupform');
+    var memberCount = form.querySelectorAll('input[type="text"][name^="member"]').length + 1;
+    
+    var label = document.createElement('label');
+    label.setAttribute('for', 'member' + memberCount);
+    label.setAttribute('class','labelgroup');
+    label.textContent = 'Member ' + memberCount;
+    
+    var input = document.createElement('input');
+    input.setAttribute('type', 'text');
+    input.setAttribute('class','groupinput')
+    input.setAttribute('name', 'member' + memberCount); // Set name attribute with a consistent pattern
+    input.setAttribute('placeholder', 'Enter Username');
+    input.setAttribute('style', 'text-align: center;');
+    input.setAttribute('required', 'true');
+    
+    form.insertBefore(label, form.querySelector('button'));
+    form.insertBefore(input, form.querySelector('button'));
+}
+
+</script>
+<div class="form">
+    <h1 id="formhead">Create a Group with Anyone,Anywhere,Anytime</h1>
+    <form class="groupform" action="/createGroup/form" method="post">
+        <label for="groupname" class="labelgroup">Enter Group Name</label>
+        <input type="text" class="groupinput" name="groupname" placeholder="Group Name" required>
+        <%if (locals.notFound){ %>
+            <h3 id="notfound">User with username <%=locals.notFound %> not Found. Try again</h3>
+        <%}%> 
+        <label for="members" class="labelgroup">Member 1</label>
+        <input type="text" class="groupinput" name="member1" placeholder="Enter username" required style="text-align: center;">
+        <button type="button" onclick="getNext()" class="groupbutton">+ Add Member</button>
+        <div class="submitstyle">
+            <input type="submit" value="Submit" id="submitgroup">
+        </div>
+    </form>
+</div>
+<%- include("footer.ejs") %>

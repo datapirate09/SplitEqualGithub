@@ -1,0 +1,22 @@
+<%- include("header.ejs") %>
+<div class="grouppage">
+    <div class="buttongroup">
+        <button class="button1"><a href="/createGroup" style="text-decoration: none; color: white;">Create Group</a></button>
+    </div>
+    <div class="group">
+        <% if (locals.groupDetails && locals.groupDetails.length > 0) { %>
+            <% locals.groupDetails.forEach(function(group) { %>
+                <a href="/groups/<%=group.groupDetail.group_id%>" style="text-decoration: none; color: black;">
+                    <div class="group-container">
+                        <h2 id="groupName"><%= group.groupDetail.group_name %></h2>
+                        <h3 id="groupMembers">No of Users: <%= group.noOfUsers %></h3>
+                        <!-- Access other properties of the group as needed -->
+                    </div>
+                </a>
+            <% }); %>
+        <% } else { %>
+            <h1 style="text-align: center;">No Groups to Display</h1>
+        <% } %>
+    </div>
+</div>
+<%- include("footer.ejs") %>

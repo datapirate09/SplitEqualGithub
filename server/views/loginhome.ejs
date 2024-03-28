@@ -1,0 +1,25 @@
+<%- include("header.ejs") %>
+<div class="loginpage">
+    <h1 class="home-head">Welcome Back <%=user.fname%></h1>
+    <div class="container">
+        <a href="/groups">
+            <div class="groups">
+                <h2 class="home-sub">My Groups</h2>
+                <h3 class="homeoption">Your Groups and Transactions</h3>
+            </div>
+        </a>
+        <a href="/myAccount">
+            <div class="account">
+                <h2 class="home-sub">My Account</h2>
+                <h3 class="homeoption">Access and change your account details</h3>
+            </div>
+        </a>
+    </div>
+    <div class="logout-container">
+        <button id="logoutButton"><a href="/logout" style="text-decoration: none; color: white;">Logout</a></button>
+        <div class="logout-options" id="logoutOptions">
+            <a href="/logout">Logout</a>
+        </div>
+    </div>
+</div>
+<%- include("footer.ejs") %>

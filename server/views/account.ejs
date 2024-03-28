@@ -1,0 +1,53 @@
+<%- include("header.ejs") %>
+<div class="account-container">
+    <h2 id="headaccount">Your Account Details</h2>
+    <% if (locals.wrongAttempt){ %>
+        <h1>Wrong Password entered</h1>
+    <% } %>
+    <form id="changeDetailsForm" action="/changeDetails" method="POST" class="form-container">
+        <div class="cont">
+            <label for="firstName">First Name</label>
+            <input type="text" name="fName" readonly="true" value="<%=user.fname%>">
+        </div>
+        <div class="cont">
+            <label for="lastName">Last Name</label>
+            <input type="text" name="lName" readonly="true" value="<%=user.lname%>">
+        </div>
+        <div class="cont">
+            <label for="email">Email Address</label>
+            <input type="text" name="email" readonly="true" value="<%=user.email%>">
+        </div>
+        <div class="cont">
+            <label for="username">Username</label>
+            <input type="text" name="username" readonly="true" value="<%=user.username%>">
+        </div>
+        <div class="cont">
+            <label for="passwordOld">Enter your old Password</label>
+            <input type="password" name="oldPassword" required>
+        </div>
+        <div class="cont">
+            <label for="passwordNew">Enter new password</label>
+            <input type="password" name="newPassword" required>
+        </div>
+        <div class="cont">
+            <label for="passwordNewConfirm">Confirm Password</label>
+            <input type="password" name="newPasswordConfirm" required>
+        </div>
+        <button type="submit" id="submitButton">Submit</button>
+    </form>
+</div>
+<%- include("footer.ejs") %>
+<script>
+    document.getElementById('changeDetailsForm').addEventListener('submit', (event) => {
+        event.preventDefault(); 
+        const newPassword = document.querySelector('input[name="newPassword"]').value;
+        const confirmNewPassword = document.querySelector('input[name="newPasswordConfirm"]').value;
+        if (newPassword === confirmNewPassword) {
+            // If old and new passwords are the same, submit the form
+            document.getElementById('changeDetailsForm').submit();
+        } else {
+            // If passwords are different, alert the user
+            alert("New password should match the old password");
+        }
+    });
+</script>
